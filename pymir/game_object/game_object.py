@@ -1,5 +1,6 @@
 import pygame
 from ..base_object import base_object
+from .. import shapes
 
 class game_object(base_object):
     def __init__(self, **args):
@@ -7,7 +8,8 @@ class game_object(base_object):
         super(game_object, self).__init__(**args)
 
         if not self.no_image and not self.screen:
-            self.screen = pygame.Surface([self.width, self.height])
+            buffer = shapes.square(self.width, self.height)
+            self.screen = buffer.draw()
             self.screen.fill([0, 0, 190])
 
     def draw(self):
