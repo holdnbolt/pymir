@@ -9,7 +9,7 @@ from . import room as pymir_room
 
 
 def camera(**args):
-    return pymir_camera.main_camera(args = args)
+    return pymir_camera.main_camera(**args)
 
 def clock(**args):
     pass
@@ -18,13 +18,13 @@ def collisions(**args):
     pass
 
 def gobject(**args):
-    return game_object.game_object(args = args)
+    return game_object.game_object(**args)
 
 def instance(**args):
-    return pymir_instance.game_instance(args = args)
+    return pymir_instance.game_instance(**args)
 
 def room(**args):
-    return pymir_room.game_room(args = args)
+    return pymir_room.game_room(**args)
 
 def world(**args):
     pass

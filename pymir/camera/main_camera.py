@@ -1,23 +1,29 @@
 import pygame
 from ..base_object import base_object
+from . import window
 
 class camera(base_object):
     def __init__(self, **args):
-        super(camera, self).__init__()
-        self.height = None
-        self.screen = None
-        self.width = None
+        self.set_initial_arguments()
+        super(camera, self).__init__(**args)
+        
+        if self.window:
+            self.main_window = window.game_window()
 
-        pygame.init()
+    def attach_object(self, single_object):
+        self.main_window.attach_object(single_object)
 
-    def set_resolution(self, resolution = 720, ratio = '16:9'):
-        diff = ratio.split(":")
-        diff = float(diff[1]) / float(diff[0])
-        self.height = resolution
-        self.width = int(resolution / diff)
+    def set_initial_arguments(self):
+        self.initial_arguments({
+            'parent': None,
+            'resolution': 720,
+            'window': True,
+            'window_ratio': '16:9'
+        })
 
     def start(self):
-        if not self.width or not self.height:
-            self.set_resolution()
+        self.main_window.set_resolution(self.resolution, self.window_ratio)
+        self.main_window.start()
 
-        self.screen = pygame.display.set_mode([self.width, self.height])
+    def update(self):
+        self.main_window.update()
