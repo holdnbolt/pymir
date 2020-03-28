@@ -4,7 +4,6 @@ PYTHONPATH=../../
 
 run_all: camera game_object
 	
-	
 camera:
 	@-$(PYTHON_INTERPRETER) $(BASEDIR)/camera.py;
 

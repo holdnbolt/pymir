@@ -1,5 +1,9 @@
-class game_room:
+import pygame
+from ..base_object import base_object
+
+class game_room(base_object):
     def __init__(self, **args):
+        super(game_room, self).__init__()
         self.setup_args(args = args)
 
     def parse_args(self, args):

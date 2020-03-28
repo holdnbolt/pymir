@@ -1,7 +1,9 @@
 import pygame
+from ..base_object import base_object
 
-class camera:
+class camera(base_object):
     def __init__(self, **args):
+        super(camera, self).__init__()
         self.height = None
         self.screen = None
         self.width = None
