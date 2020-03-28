@@ -1,2 +1,5 @@
+import pygame
+
 class game_object:
-    pass
+    def __init__(self, **args):
+        self.par

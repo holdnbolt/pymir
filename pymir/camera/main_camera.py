@@ -1,7 +1,7 @@
 import pygame
 
 class camera:
-    def __init__(self):
+    def __init__(self, **args):
         self.height = None
         self.screen = None
         self.width = None
