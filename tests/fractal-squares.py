@@ -1,0 +1,3 @@
+import pymir
+
+print(pymir)
