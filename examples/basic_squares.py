@@ -1,3 +1,2 @@
 import pymir
 
-print(pymir)

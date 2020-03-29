@@ -3,7 +3,7 @@ os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
 import pygame
 
 from . import camera as pymir_camera
-from . import clock as pymir_clock
+from . import system_clock as pymir_clock
 from . import game_object as pymir_game_object
 from . import instance as pymir_instance
 from . import room as pymir_room
@@ -15,7 +15,7 @@ def clock(**args):
     return pymir_clock.system_clock(**args)
 
 def collisions(**args):
-    pass
+    return None
 
 def gobject(**args):
     return pymir_game_object.game_object(**args)
@@ -27,4 +27,4 @@ def room(**args):
     return pymir_room.game_room(**args)
 
 def world(**args):
-    pass
+    return None
