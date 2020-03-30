@@ -1,4 +1,7 @@
 class pymir_object:
+    base_dunders = ["__data__", "__datakeys__", "__name__"]
+    base_keys = ["arguments", "id", "labeled_arguments"]
+
     def __del__(self):
         pass
 
@@ -6,42 +9,67 @@ class pymir_object:
         pass
 
     def __getattr__(self, name):
-        pass
+        if name in self.base_dunders:
+            return self.__dict__[name]
+
+        if name in self.base_keys:
+            return self.__dict__[name]
+
+        if name in self.__datakeys__:
+            return self.__data__[name]
+
+        print("%s.%s does not exist" % (
+            self.__name__,
+            name
+        ))
+        return False
 
     def __init__(self, *args, **kwargs):
-        print(self.arguments)
+        self.set_initial_arguments()
+        self.check_local_arguments(args, kwargs)
 
     def __new__(cls, *args, **kwargs):       
         parent_object = super(pymir_object, cls)
         self = parent_object.__new__(cls)
-        
+        self.__name__ = cls.__name__
+        self.__data__ = {}
+        self.__datakeys__ = []
+
         self.arguments = args
         self.labeled_arguments = kwargs
+
         parent_object.__init__(cls)
         return self
 
     def __setattr__(self, name, value):
-        print("Ha ha! no")
+        if name in self.base_dunders:
+            self.__dict__[name] = value
+            return True
+
+        if name in self.base_keys:
+            self.__dict__[name] = value
+            return True
+
+        if name in self.__datakeys__:
+            self.__data__[name] = value
+            return True
+
+        print("%s.%s does not exist" % (self.__name__, name))
+        exit(-1)
 
     def __str__(self):
-        return "base_object @ [" + str(id(self)) + "]"
+        return self.__name__ + " [" + str(id(self)) + "]"
 
-# class base_object:
-#     def __init__(self, **args):
-#         self.check_arguments(**args)
+    def add_local_arguments(self, args):
+        for key in args:
+            self.__datakeys__.append(key)
+            self.__data__[key] = args[key]
 
-#     def check_arguments(self, **args):
-#         for argument in args:
-#             if argument in self.keys:
-#                 self.argument = args[argument]
-#             else:
-#                 print("Unknown argument", argument)
+    def check_local_arguments(self, *args, **kwargs):
+        print(self.__datakeys__)
+    
+    def set_initial_arguments(self):
+        # To be overwrote
+        pass
 
-#     def initial_arguments(self, args):
-#         self.keys = list(args.keys())
-#         for argument in args:
-#             self.__dict__[argument] = args[argument]
             
-#     def set_initial_arguments(self):
-#         # To be overrid
-#         pass
