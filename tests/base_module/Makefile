@@ -7,3 +7,6 @@ all:
 
 base_object:
 	@-PYTHONPATH=$(PYPATH) $(PYTHON_INTERPRETER) base_object.py;
+
+base_time:
+	@-PYTHONPATH=$(PYPATH) $(PYTHON_INTERPRETER) base_time.py;

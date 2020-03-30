@@ -11,4 +11,7 @@ class test(pymir.base_object.pymir_object):
             'files': None
         })
 
-buffer = test()
+for n in range(3):
+    buffer = test()
+    buffer.test = "Hello World"
+    print(buffer.id)
