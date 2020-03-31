@@ -15,3 +15,4 @@ for n in range(3):
     buffer = test()
     buffer.test = "Hello World"
     print(buffer.id)
+    print(buffer.hash())

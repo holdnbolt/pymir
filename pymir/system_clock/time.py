@@ -1,4 +1,15 @@
+from datetime import datetime
 from .. import base_object
 
 class time(base_object.pymir_object):
-    pass
+    def __new__(cls, *args, **kwargs):
+        parent = super(time, cls)
+        self = parent.__new__(cls, *args, **kwargs)  
+
+        return self
+
+    def set_initial_arguments(self):
+        self.add_local_arguments({
+            'time': None,
+            'string_only': False
+        })

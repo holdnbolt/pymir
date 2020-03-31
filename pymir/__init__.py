@@ -4,16 +4,13 @@ import pygame
 
 from . import base_object
 # from . import camera as pymir_camera
-# from . import system_clock as pymir_clock
+from . import system_clock
 # from . import game_object as pymir_game_object
 # from . import instance as pymir_instance
 # from . import room as pymir_room
 
 # def camera(**args):
 #     return pymir_camera.main_camera(**args)
-
-# def clock(**args):
-#     return pymir_clock.system_clock(**args)
 
 # def collisions(**args):
 #     return None
