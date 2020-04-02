@@ -1,6 +1,3 @@
-#from . import main_clock
-#from . import time_interval
+from . import timestamp as pymir_timestamp
 
-from . import time as pymir_timestamp
-
-time = pymir_timestamp.time
+timestamp = pymir_timestamp.pymir_timestamp

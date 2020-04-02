@@ -26,3 +26,4 @@ def setup_environment():
     os = import_common('os')
 
     os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
+    os.environ['PYTHONDONTWRITEBYTECODE'] = "1"
