@@ -1,30 +1,9 @@
-import os
-os.environ['PYGAME_HIDE_SUPPORT_PROMPT'] = "hide"
-import pygame
+from . import helpers
 
 from . import base_object
-# from . import camera as pymir_camera
-from . import system_clock
-# from . import game_object as pymir_game_object
-# from . import instance as pymir_instance
-# from . import room as pymir_room
+#from . import system_clock as sysclk
 
-# def camera(**args):
-#     return pymir_camera.main_camera(**args)
-
-# def collisions(**args):
-#     return None
-
-# def gobject(**args):
-#     return pymir_game_object.game_object(**args)
-
-# def instance(**args):
-#     return pymir_instance.game_instance(**args)
-
-# def room(**args):
-#     return pymir_room.game_room(**args)
-
-# def world(**args):
-#     return None
+helpers.setup_environment()
+mods = helpers.import_common()
 
 obj = base_object.pymir_object

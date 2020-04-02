@@ -1,6 +1,6 @@
 import pymir
 
-class test(pymir.base_object.pymir_object):
+class test(pymir.obj):
     def __init__(self, *args, **kwargs):
         parent = super(test, self)
         parent.__init__(self)
